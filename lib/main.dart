@@ -14,7 +14,7 @@ class BreathingApp extends StatelessWidget {
     return MaterialApp(
       title: "Breathing App",
       theme: AppTheme.theme,
-      home: BreathingSetupScreen(),
+      home: const BreathingSetupScreen(),
     );
   }
 }

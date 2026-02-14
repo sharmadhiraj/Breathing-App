@@ -1,3 +1,4 @@
+import 'package:breathing_app/core/theme.dart';
 import 'package:flutter/material.dart';
 
 class OptionChips extends StatefulWidget {
@@ -58,13 +59,6 @@ class _OptionChip extends StatelessWidget {
   final bool isSelected;
   final VoidCallback onTap;
 
-  static const Color selectedBg = Color(0xFFFFF8F0);
-  static const Color unselectedBg = Color(0xFFF7F7F7);
-  static const Color selectedBorder = Color(0xFFE47B00);
-  static const Color unselectedBorder = Color(0xFFF5F5F5);
-  static const Color selectedText = Color(0xFFE47B00);
-  static const Color unselectedText = Colors.black;
-
   const _OptionChip({
     required this.label,
     required this.isSelected,
@@ -78,9 +72,11 @@ class _OptionChip extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 16),
         decoration: BoxDecoration(
-          color: isSelected ? selectedBg : unselectedBg,
+          color: isSelected
+              ? AppTheme.surfaceSecondary
+              : AppTheme.surfacePrimary,
           border: Border.all(
-            color: isSelected ? selectedBorder : unselectedBorder,
+            color: isSelected ? AppTheme.borderAccent : AppTheme.borderPrimary,
           ),
           borderRadius: BorderRadius.circular(28),
         ),
@@ -89,7 +85,7 @@ class _OptionChip extends StatelessWidget {
           label,
           style: TextStyle(
             fontWeight: FontWeight.w500,
-            color: isSelected ? selectedText : unselectedText,
+            color: isSelected ? AppTheme.textAccent : AppTheme.textPrimary,
             height: 1.5,
             letterSpacing: 0,
           ),
