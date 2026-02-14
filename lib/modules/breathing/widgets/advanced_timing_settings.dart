@@ -2,46 +2,73 @@ import 'package:breathing_app/core/theme/app_colors.dart';
 import 'package:breathing_app/core/widgets/number_field.dart';
 import 'package:breathing_app/core/widgets/settings_tile_subtitle.dart';
 import 'package:breathing_app/core/widgets/settings_tile_title.dart';
+import 'package:breathing_app/modules/breathing/bloc/advanced_timing_bloc.dart';
+import 'package:breathing_app/modules/breathing/bloc/advanced_timing_event.dart';
+import 'package:breathing_app/modules/breathing/bloc/advanced_timing_state.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class AdvancedTimingSettings extends StatefulWidget {
+class AdvancedTimingSettings extends StatelessWidget {
   const AdvancedTimingSettings({super.key});
 
   @override
-  State<AdvancedTimingSettings> createState() => _AdvancedTimingSettingsState();
-}
-
-class _AdvancedTimingSettingsState extends State<AdvancedTimingSettings>
-    with TickerProviderStateMixin {
-  bool isExpanded = false;
-
-  void _toggle() {
-    setState(() => isExpanded = !isExpanded);
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return AnimatedSize(
-      duration: const Duration(milliseconds: 300),
-      curve: Curves.easeInOut,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _buildHeader(),
-          if (isExpanded) ...[
-            const SizedBox(height: 12),
-            _AdvancedTimingItem(title: "Breathe in", onChanged: (_) {}),
-            _AdvancedTimingItem(title: "Hold in", onChanged: (_) {}),
-            _AdvancedTimingItem(title: "Breathe out", onChanged: (_) {}),
-            _AdvancedTimingItem(title: "Hold out", onChanged: (_) {}),
-          ],
-        ],
+    return BlocProvider(
+      create: (_) => AdvancedTimingBloc(),
+      child: BlocBuilder<AdvancedTimingBloc, AdvancedTimingState>(
+        builder: (context, state) {
+          return AnimatedSize(
+            duration: const Duration(milliseconds: 300),
+            curve: Curves.easeInOut,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _buildHeader(context, state.isExpanded),
+                if (state.isExpanded) ...[
+                  const SizedBox(height: 12),
+                  _AdvancedTimingItem(
+                    title: "Breathe in",
+                    initialValue: state.breatheIn,
+                    onChanged: (value) =>
+                        context
+                            .read<AdvancedTimingBloc>()
+                            .add(SetAdvancedTiming(breatheIn: value)),
+                  ),
+                  _AdvancedTimingItem(
+                    title: "Hold in",
+                    initialValue: state.holdIn,
+                    onChanged: (value) =>
+                        context
+                            .read<AdvancedTimingBloc>()
+                            .add(SetAdvancedTiming(holdIn: value)),
+                  ),
+                  _AdvancedTimingItem(
+                    title: "Breathe out",
+                    initialValue: state.breatheOut,
+                    onChanged: (value) =>
+                        context
+                            .read<AdvancedTimingBloc>()
+                            .add(SetAdvancedTiming(breatheOut: value)),
+                  ),
+                  _AdvancedTimingItem(
+                    title: "Hold out",
+                    initialValue: state.holdOut,
+                    onChanged: (value) =>
+                        context
+                            .read<AdvancedTimingBloc>()
+                            .add(SetAdvancedTiming(holdOut: value)),
+                  ),
+                ],
+              ],
+            ),
+          );
+        },
       ),
     );
   }
 
-  Widget _buildHeader() {
+  Widget _buildHeader(BuildContext context, bool isExpanded) {
     return Row(
       children: [
         const Expanded(
@@ -57,7 +84,10 @@ class _AdvancedTimingSettingsState extends State<AdvancedTimingSettings>
           ),
         ),
         IconButton(
-          onPressed: _toggle,
+          onPressed: () =>
+              context
+                  .read<AdvancedTimingBloc>()
+                  .add(ToggleAdvancedTimingExpanded()),
           icon: AnimatedRotation(
             turns: isExpanded ? 0.5 : 0,
             duration: const Duration(milliseconds: 300),
@@ -73,7 +103,7 @@ class _AdvancedTimingSettingsState extends State<AdvancedTimingSettings>
 class _AdvancedTimingItem extends StatelessWidget {
   const _AdvancedTimingItem({
     required this.title,
-    this.initialValue,
+    required this.initialValue,
     required this.onChanged,
   });
 

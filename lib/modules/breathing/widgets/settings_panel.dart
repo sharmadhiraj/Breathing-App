@@ -2,8 +2,11 @@ import 'package:breathing_app/core/theme/theme.dart';
 import 'package:breathing_app/core/widgets/option_chips.dart';
 import 'package:breathing_app/core/widgets/settings_tile_subtitle.dart';
 import 'package:breathing_app/core/widgets/settings_tile_title.dart';
+import 'package:breathing_app/modules/breathing/bloc/setup_bloc.dart';
+import 'package:breathing_app/modules/breathing/bloc/setup_event.dart';
 import 'package:breathing_app/modules/breathing/widgets/advanced_timing_settings.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BreathingSettingsPanel extends StatelessWidget {
   const BreathingSettingsPanel({super.key});
@@ -21,19 +24,19 @@ class BreathingSettingsPanel extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _buildBreathDurationSection(),
+          _buildBreathDurationSection(context),
           const SizedBox(height: 20),
-          _buildRoundsSection(),
+          _buildRoundsSection(context),
           const SizedBox(height: 20),
           const AdvancedTimingSettings(),
           const SizedBox(height: 20),
-          _buildSoundSection(),
+          _buildSoundSection(context),
         ],
       ),
     );
   }
 
-  Widget _buildBreathDurationSection() {
+  Widget _buildBreathDurationSection(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
@@ -43,14 +46,15 @@ class BreathingSettingsPanel extends StatelessWidget {
         const SizedBox(height: 12),
         OptionChips(
           options: [3, 4, 5, 10],
-          onChanged: (value) {},
+          onChanged: (value) =>
+              context.read<SetupBloc>().add(SetBreathDuration(value)),
           formatLabel: (value) => "${value}s",
         ),
       ],
     );
   }
 
-  Widget _buildRoundsSection() {
+  Widget _buildRoundsSection(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
@@ -60,14 +64,14 @@ class BreathingSettingsPanel extends StatelessWidget {
         const SizedBox(height: 12),
         OptionChips(
           options: [2, 4, 6, 8, 10],
-          onChanged: (value) {},
+          onChanged: (value) => context.read<SetupBloc>().add(SetRounds(value)),
           formatLabel: (value) => "$value min",
         ),
       ],
     );
   }
 
-  Widget _buildSoundSection() {
+  Widget _buildSoundSection(BuildContext context) {
     return Row(
       children: [
         const Expanded(
@@ -85,7 +89,8 @@ class BreathingSettingsPanel extends StatelessWidget {
           child: Switch(
             materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
             value: false,
-            onChanged: (value) {},
+            onChanged: (value) =>
+                context.read<SetupBloc>().add(SetSoundEnabled(value)),
             activeTrackColor: AppTheme.primaryColor,
             inactiveTrackColor: Colors.black38,
             thumbColor: WidgetStateProperty.all(Colors.white),

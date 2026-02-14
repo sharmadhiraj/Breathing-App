@@ -2,8 +2,10 @@ import 'package:breathing_app/core/route.dart';
 import 'package:breathing_app/core/theme/app_colors.dart';
 import 'package:breathing_app/core/widgets/app_bar.dart';
 import 'package:breathing_app/core/widgets/button.dart';
+import 'package:breathing_app/modules/breathing/bloc/setup_bloc.dart';
 import 'package:breathing_app/modules/breathing/widgets/settings_panel.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SetupScreen extends StatelessWidget {
   const SetupScreen({super.key});
@@ -15,17 +17,20 @@ class SetupScreen extends StatelessWidget {
 
   Widget _buildBody(BuildContext context) {
     return SafeArea(
-      child: ListView(
-        padding: const EdgeInsets.all(16),
-        children: [
-          _buildTitle(context),
-          const SizedBox(height: 12),
-          _buildLabel(context),
-          const SizedBox(height: 16),
-          const BreathingSettingsPanel(),
-          const SizedBox(height: 24),
-          _buildButton(context),
-        ],
+      child: BlocProvider(
+        create: (_) => SetupBloc(),
+        child: ListView(
+          padding: const EdgeInsets.all(16),
+          children: [
+            _buildTitle(context),
+            const SizedBox(height: 12),
+            _buildLabel(context),
+            const SizedBox(height: 16),
+            const BreathingSettingsPanel(),
+            const SizedBox(height: 24),
+            _buildButton(context),
+          ],
+        ),
       ),
     );
   }
