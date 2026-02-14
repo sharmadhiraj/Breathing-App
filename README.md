@@ -17,5 +17,6 @@ A simple Flutter app for guided breathing exercises using BLoC state management.
 - Minimize redundant state variables
 - Refactor architecture
 - Add animations for transitions
+- Add unit/integrationt tests
 
 #### Web app https://sharmadhiraj.github.io/Breathing-App/
