@@ -45,18 +45,23 @@ class BackgroundBuilder extends StatelessWidget {
             top: 0,
             left: 0,
             right: 0,
-            child: Image.asset(
-              "assets/images/${isLightMode ? "light" : "dark"}_cloud_1.png",
-              width: 400,
+            child: Opacity(
+              opacity: 0.2,
+              child: Image.asset(
+                "assets/images/${isLightMode ? "light" : "dark"}_cloud_1.png",
+                width: 400,
+              ),
             ),
           ),
 
           Positioned.fill(
             child: Align(
-              alignment: Alignment.center,
-              child: Image.asset(
-                "assets/images/${isLightMode ? "light" : "dark"}_cloud_2.png",
-                width: 400,
+              child: Opacity(
+                opacity: 0.2,
+                child: Image.asset(
+                  "assets/images/${isLightMode ? "light" : "dark"}_cloud_2.png",
+                  width: 400,
+                ),
               ),
             ),
           ),
@@ -65,9 +70,12 @@ class BackgroundBuilder extends StatelessWidget {
             bottom: 0,
             left: 0,
             right: 0,
-            child: Image.asset(
-              "assets/images/${isLightMode ? "light" : "dark"}_cloud_3.png",
-              width: 400,
+            child: Opacity(
+              opacity: 0.2,
+              child: Image.asset(
+                "assets/images/${isLightMode ? "light" : "dark"}_cloud_3.png",
+                width: 400,
+              ),
             ),
           ),
 

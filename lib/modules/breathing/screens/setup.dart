@@ -51,7 +51,7 @@ class SetupScreen extends StatelessWidget {
       style: TextStyle(
         height: 1.5,
         letterSpacing: 0,
-        color: Theme.of(context).extension<AppColors>()!.textSecondary,
+        color: Theme.of(context).extension<AppColors>()!.textPrimary,
       ),
     );
   }

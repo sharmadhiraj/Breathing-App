@@ -1,4 +1,4 @@
-import 'package:breathing_app/core/theme/app_colors.dart';
+import 'package:breathing_app/core/theme/theme.dart';
 import 'package:flutter/material.dart';
 
 class SettingsTileTitle extends StatelessWidget {
@@ -10,12 +10,12 @@ class SettingsTileTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title,
-      style: TextStyle(
+      style: const TextStyle(
         fontWeight: FontWeight.w600,
         fontSize: 16,
         height: 1.5,
         letterSpacing: 0,
-        color: Theme.of(context).extension<AppColors>()!.textPrimary,
+        color: AppTheme.primaryColor,
       ),
     );
   }

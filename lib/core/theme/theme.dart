@@ -7,7 +7,7 @@ class AppTheme {
   static final ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,
     primaryColor: primaryColor,
-    scaffoldBackgroundColor: Colors.transparent,
+    scaffoldBackgroundColor: const Color(0xFFF7F7F7).withValues(alpha: 0.8),
     fontFamily: "Quicksand",
     textTheme: const TextTheme(
       bodyMedium: TextStyle(fontSize: 16, color: Color(0xFF141414)),
