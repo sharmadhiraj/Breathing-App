@@ -1,5 +1,5 @@
-import 'package:breathing_app/modules/breathing/bloc/advanced_timing_event.dart';
-import 'package:breathing_app/modules/breathing/bloc/advanced_timing_state.dart';
+import 'package:breathing_app/modules/setup/bloc/advanced_timing_event.dart';
+import 'package:breathing_app/modules/setup/bloc/advanced_timing_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AdvancedTimingBloc

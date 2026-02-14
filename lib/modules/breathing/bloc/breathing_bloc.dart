@@ -1,11 +1,11 @@
 import 'dart:async';
 
 import 'package:audioplayers/audioplayers.dart';
-import 'package:breathing_app/modules/breathing/bloc/advanced_timing_state.dart';
 import 'package:breathing_app/modules/breathing/bloc/breathing_event.dart';
 import 'package:breathing_app/modules/breathing/bloc/breathing_state.dart';
-import 'package:breathing_app/modules/breathing/bloc/setup_state.dart';
 import 'package:breathing_app/modules/breathing/models/breathing_phase.dart';
+import 'package:breathing_app/modules/setup/bloc/advanced_timing_state.dart';
+import 'package:breathing_app/modules/setup/bloc/setup_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BreathingBloc extends Bloc<BreathingEvent, BreathingState> {

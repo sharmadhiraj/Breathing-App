@@ -5,13 +5,13 @@ import 'package:breathing_app/core/widgets/button.dart';
 import 'package:breathing_app/core/widgets/linear_progress.dart';
 import 'package:breathing_app/core/widgets/settings_tile_subtitle.dart';
 import 'package:breathing_app/core/widgets/settings_tile_title.dart';
-import 'package:breathing_app/modules/breathing/bloc/advanced_timing_bloc.dart';
 import 'package:breathing_app/modules/breathing/bloc/breathing_bloc.dart';
 import 'package:breathing_app/modules/breathing/bloc/breathing_event.dart';
 import 'package:breathing_app/modules/breathing/bloc/breathing_state.dart';
-import 'package:breathing_app/modules/breathing/bloc/setup_bloc.dart';
 import 'package:breathing_app/modules/breathing/models/breathing_phase.dart';
 import 'package:breathing_app/modules/breathing/widgets/bubble.dart';
+import 'package:breathing_app/modules/setup/bloc/advanced_timing_bloc.dart';
+import 'package:breathing_app/modules/setup/bloc/setup_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

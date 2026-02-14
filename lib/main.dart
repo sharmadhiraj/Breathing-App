@@ -2,8 +2,8 @@ import 'package:breathing_app/core/route.dart';
 import 'package:breathing_app/core/theme/bloc.dart';
 import 'package:breathing_app/core/theme/theme.dart';
 import 'package:breathing_app/core/widgets/background_builder.dart';
-import 'package:breathing_app/modules/breathing/bloc/advanced_timing_bloc.dart';
-import 'package:breathing_app/modules/breathing/bloc/setup_bloc.dart';
+import 'package:breathing_app/modules/setup/bloc/advanced_timing_bloc.dart';
+import 'package:breathing_app/modules/setup/bloc/setup_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

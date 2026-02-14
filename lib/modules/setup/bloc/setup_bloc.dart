@@ -1,5 +1,5 @@
-import 'package:breathing_app/modules/breathing/bloc/setup_event.dart';
-import 'package:breathing_app/modules/breathing/bloc/setup_state.dart';
+import 'package:breathing_app/modules/setup/bloc/setup_event.dart';
+import 'package:breathing_app/modules/setup/bloc/setup_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SetupBloc extends Bloc<SetupEvent, SetupState> {

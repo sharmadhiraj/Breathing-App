@@ -1,6 +1,6 @@
 import 'package:breathing_app/modules/breathing/screens/breathing.dart';
-import 'package:breathing_app/modules/breathing/screens/finish.dart';
-import 'package:breathing_app/modules/breathing/screens/setup.dart';
+import 'package:breathing_app/modules/finish/screens/finish.dart';
+import 'package:breathing_app/modules/setup/screens/setup.dart';
 import 'package:flutter/material.dart';
 
 class AppRoutes {

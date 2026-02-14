@@ -2,12 +2,12 @@ import 'package:breathing_app/core/theme/theme.dart';
 import 'package:breathing_app/core/widgets/option_chips.dart';
 import 'package:breathing_app/core/widgets/settings_tile_subtitle.dart';
 import 'package:breathing_app/core/widgets/settings_tile_title.dart';
-import 'package:breathing_app/modules/breathing/bloc/advanced_timing_bloc.dart';
-import 'package:breathing_app/modules/breathing/bloc/advanced_timing_event.dart';
-import 'package:breathing_app/modules/breathing/bloc/setup_bloc.dart';
-import 'package:breathing_app/modules/breathing/bloc/setup_event.dart';
-import 'package:breathing_app/modules/breathing/bloc/setup_state.dart';
-import 'package:breathing_app/modules/breathing/widgets/advanced_timing_settings.dart';
+import 'package:breathing_app/modules/setup/bloc/advanced_timing_bloc.dart';
+import 'package:breathing_app/modules/setup/bloc/advanced_timing_event.dart';
+import 'package:breathing_app/modules/setup/bloc/setup_bloc.dart';
+import 'package:breathing_app/modules/setup/bloc/setup_event.dart';
+import 'package:breathing_app/modules/setup/bloc/setup_state.dart';
+import 'package:breathing_app/modules/setup/widgets/advanced_timing_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

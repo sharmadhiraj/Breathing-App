@@ -1,4 +1,4 @@
-import 'package:breathing_app/modules/breathing/bloc/setup_state.dart';
+import 'package:breathing_app/modules/setup/bloc/setup_state.dart';
 import 'package:equatable/equatable.dart';
 
 class AdvancedTimingState extends Equatable {
