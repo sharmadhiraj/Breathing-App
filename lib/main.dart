@@ -1,3 +1,5 @@
+import 'package:breathing_app/core/theme.dart';
+import 'package:breathing_app/modules/breathing/screens/setup.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,21 +12,9 @@ class BreathingApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "BreathingApp",
-      theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.teal)),
-      home: HomeScreen(),
-    );
-  }
-}
-
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text("Breathing App")),
-      body: Center(child: Text("WIP")),
+      title: "Breathing App",
+      theme: AppTheme.theme,
+      home: BreathingSetupScreen(),
     );
   }
 }
