@@ -2,16 +2,14 @@ import 'package:breathing_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class OptionChips extends StatefulWidget {
-  final List<int> options;
-  final int? initialValue;
+  final Map<int, String> labels;
+  final int initialValue;
   final ValueChanged<int>? onChanged;
-  final String Function(int)? formatLabel;
 
   const OptionChips({
     super.key,
-    required this.options,
-    this.formatLabel,
-    this.initialValue,
+    required this.labels,
+    required this.initialValue,
     this.onChanged,
   });
 
@@ -25,7 +23,7 @@ class _OptionChipsState extends State<OptionChips> {
   @override
   void initState() {
     super.initState();
-    selectedValue = widget.initialValue ?? widget.options.first;
+    selectedValue = widget.initialValue;
   }
 
   void _onChipTap(int value) {
@@ -39,13 +37,13 @@ class _OptionChipsState extends State<OptionChips> {
       scrollDirection: Axis.horizontal,
       child: Row(
         mainAxisSize: MainAxisSize.min,
-        children: widget.options.map((option) {
+        children: widget.labels.entries.map((entry) {
           return Padding(
             padding: const EdgeInsets.only(right: 8),
             child: _OptionChip(
-              label: widget.formatLabel?.call(option) ?? option.toString(),
-              isSelected: selectedValue == option,
-              onTap: () => _onChipTap(option),
+              label: entry.value,
+              isSelected: selectedValue == entry.key,
+              onTap: () => _onChipTap(entry.key),
             ),
           );
         }).toList(),

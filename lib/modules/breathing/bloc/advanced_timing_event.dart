@@ -1,6 +1,10 @@
 abstract class AdvancedTimingEvent {}
 
-class ToggleAdvancedTimingExpanded extends AdvancedTimingEvent {}
+class ToggleAdvancedTimingExpanded extends AdvancedTimingEvent {
+  final int defaultDuration;
+
+  ToggleAdvancedTimingExpanded({required this.defaultDuration});
+}
 
 class SetAdvancedTiming extends AdvancedTimingEvent {
   final int? breatheIn;

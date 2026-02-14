@@ -1,13 +1,14 @@
-
-
 class SetupState {
   final int breathDuration;
   final int rounds;
   final bool soundEnabled;
 
+  static const defaultDuration = 4;
+  static const defaultRounds = 4;
+
   const SetupState({
-    this.breathDuration = 4,
-    this.rounds = 4,
+    this.breathDuration = defaultDuration,
+    this.rounds = defaultRounds,
     this.soundEnabled = true,
   });
 

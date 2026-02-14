@@ -1,3 +1,4 @@
+import 'package:breathing_app/modules/breathing/bloc/setup_state.dart';
 import 'package:equatable/equatable.dart';
 
 class AdvancedTimingState extends Equatable {
@@ -7,13 +8,12 @@ class AdvancedTimingState extends Equatable {
   final int holdOut;
   final bool isExpanded;
 
-  static const int defaultDuration = 4;
 
   const AdvancedTimingState({
-    this.breatheIn = defaultDuration,
-    this.holdIn = defaultDuration,
-    this.breatheOut = defaultDuration,
-    this.holdOut = defaultDuration,
+    this.breatheIn = SetupState.defaultDuration,
+    this.holdIn = SetupState.defaultDuration,
+    this.breatheOut = SetupState.defaultDuration,
+    this.holdOut = SetupState.defaultDuration,
     this.isExpanded = false,
   });
 

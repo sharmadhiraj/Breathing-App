@@ -17,8 +17,8 @@ class NumberField extends StatefulWidget {
 
 class _NumberFieldState extends State<NumberField> {
   late int value;
-  final int minValue = 1;
-  final int maxValue = 24;
+  final int minValue = 2;
+  final int maxValue = 10;
 
   @override
   void initState() {

@@ -2,8 +2,11 @@ import 'package:breathing_app/core/theme/theme.dart';
 import 'package:breathing_app/core/widgets/option_chips.dart';
 import 'package:breathing_app/core/widgets/settings_tile_subtitle.dart';
 import 'package:breathing_app/core/widgets/settings_tile_title.dart';
+import 'package:breathing_app/modules/breathing/bloc/advanced_timing_bloc.dart';
+import 'package:breathing_app/modules/breathing/bloc/advanced_timing_event.dart';
 import 'package:breathing_app/modules/breathing/bloc/setup_bloc.dart';
 import 'package:breathing_app/modules/breathing/bloc/setup_event.dart';
+import 'package:breathing_app/modules/breathing/bloc/setup_state.dart';
 import 'package:breathing_app/modules/breathing/widgets/advanced_timing_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -45,10 +48,19 @@ class BreathingSettingsPanel extends StatelessWidget {
         const SettingsTileSubtitle(title: "Seconds per phase"),
         const SizedBox(height: 12),
         OptionChips(
-          options: [3, 4, 5, 10],
-          onChanged: (value) =>
-              context.read<SetupBloc>().add(SetBreathDuration(value)),
-          formatLabel: (value) => "${value}s",
+          onChanged: (value) {
+            context.read<SetupBloc>().add(SetBreathDuration(value));
+            context.read<AdvancedTimingBloc>().add(
+              SetAdvancedTiming(
+                breatheIn: value,
+                breatheOut: value,
+                holdIn: value,
+                holdOut: value,
+              ),
+            );
+          },
+          labels: {3: "3s", 4: "4s", 5: "5s", 10: "10s"},
+          initialValue: SetupState.defaultDuration,
         ),
       ],
     );
@@ -63,9 +75,9 @@ class BreathingSettingsPanel extends StatelessWidget {
         const SettingsTileSubtitle(title: "Full breathing cycles"),
         const SizedBox(height: 12),
         OptionChips(
-          options: [2, 4, 6, 8, 10],
           onChanged: (value) => context.read<SetupBloc>().add(SetRounds(value)),
-          formatLabel: (value) => "$value min",
+          labels: {2: "2 quick", 4: "4 calm", 6: "6 deep", 8: "8 zen"},
+          initialValue: SetupState.defaultRounds,
         ),
       ],
     );
@@ -88,7 +100,7 @@ class BreathingSettingsPanel extends StatelessWidget {
           scale: 0.8,
           child: Switch(
             materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-            value: false,
+            value: context.read<SetupBloc>().state.soundEnabled,
             onChanged: (value) =>
                 context.read<SetupBloc>().add(SetSoundEnabled(value)),
             activeTrackColor: AppTheme.primaryColor,

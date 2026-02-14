@@ -17,20 +17,15 @@ class AdvancedTimingBloc
     });
 
     on<ToggleAdvancedTimingExpanded>((event, emit) {
-      final newExpanded = !state.isExpanded;
-      if (!newExpanded) {
-        emit(
-          state.copyWith(
-            isExpanded: false,
-            breatheIn: AdvancedTimingState.defaultDuration,
-            holdIn: AdvancedTimingState.defaultDuration,
-            breatheOut: AdvancedTimingState.defaultDuration,
-            holdOut: AdvancedTimingState.defaultDuration,
-          ),
-        );
-      } else {
-        emit(state.copyWith(isExpanded: true));
-      }
+      emit(
+        state.copyWith(
+          isExpanded: !state.isExpanded,
+          breatheIn: event.defaultDuration,
+          holdIn: event.defaultDuration,
+          breatheOut: event.defaultDuration,
+          holdOut: event.defaultDuration,
+        ),
+      );
     });
   }
 }
