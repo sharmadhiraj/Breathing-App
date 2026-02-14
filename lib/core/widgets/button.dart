@@ -4,37 +4,57 @@ import 'package:flutter/material.dart';
 class AppButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
+  final Color backgroundColor;
+  final String? leftIcon;
+  final String? rightIcon;
 
-  const AppButton({super.key, required this.text, required this.onPressed});
+  const AppButton({
+    super.key,
+    required this.text,
+    required this.onPressed,
+    this.backgroundColor = AppTheme.primaryColor,
+    this.leftIcon,
+    this.rightIcon,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-        backgroundColor: AppTheme.primaryColor,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
-        padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 16),
-        elevation: 0,
-        minimumSize: Size.zero,
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(
-            text,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontWeight: FontWeight.w700,
-              fontSize: 16,
-              height: 1.5,
-              color: Colors.white,
-            ),
+    return Align(
+      child: ElevatedButton(
+        onPressed: onPressed,
+        style: ElevatedButton.styleFrom(
+          backgroundColor: backgroundColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(32),
           ),
-          const SizedBox(width: 8),
-          Image.asset("assets/icons/breath.png", width: 24, height: 24),
-        ],
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+          elevation: 0,
+          minimumSize: Size.zero,
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            if (leftIcon != null) ...[
+              Image.asset("assets/icons/$leftIcon.png", width: 24, height: 24),
+              const SizedBox(width: 8),
+            ],
+            Text(
+              text,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontWeight: FontWeight.w700,
+                fontSize: 16,
+                height: 1.5,
+                color: Colors.black,
+              ),
+            ),
+            if (rightIcon != null) ...[
+              const SizedBox(width: 8),
+              Image.asset("assets/icons/$rightIcon.png", width: 24, height: 24),
+            ],
+          ],
+        ),
       ),
     );
   }

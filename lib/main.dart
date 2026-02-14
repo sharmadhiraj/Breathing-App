@@ -1,5 +1,5 @@
 import 'package:breathing_app/core/theme.dart';
-import 'package:breathing_app/modules/breathing/screens/setup.dart';
+import 'package:breathing_app/modules/breathing/screens/breathing.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,7 +14,7 @@ class BreathingApp extends StatelessWidget {
     return MaterialApp(
       title: "Breathing App",
       theme: AppTheme.theme,
-      home: const BreathingSetupScreen(),
+      home: const BreathingScreen(),
     );
   }
 }

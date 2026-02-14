@@ -58,9 +58,11 @@ class BreathingSetupScreen extends StatelessWidget {
     );
   }
 
-  Align _buildButton() {
-    return Align(
-      child: AppButton(text: "Start breathing", onPressed: () {}),
+  Widget _buildButton() {
+    return AppButton(
+      text: "Start breathing",
+      onPressed: () {},
+      rightIcon: "breath",
     );
   }
 }
