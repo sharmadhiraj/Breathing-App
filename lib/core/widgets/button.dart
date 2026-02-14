@@ -7,12 +7,14 @@ class AppButton extends StatelessWidget {
   final Color backgroundColor;
   final String? leftIcon;
   final String? rightIcon;
+  final Color textColor;
 
   const AppButton({
     super.key,
     required this.text,
     required this.onPressed,
     this.backgroundColor = AppTheme.primaryColor,
+    this.textColor = Colors.white,
     this.leftIcon,
     this.rightIcon,
   });
@@ -27,7 +29,7 @@ class AppButton extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(32),
           ),
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+          padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 16),
           elevation: 0,
           minimumSize: Size.zero,
         ),
@@ -42,11 +44,11 @@ class AppButton extends StatelessWidget {
             Text(
               text,
               textAlign: TextAlign.center,
-              style: const TextStyle(
+              style: TextStyle(
                 fontWeight: FontWeight.w700,
                 fontSize: 16,
                 height: 1.5,
-                color: Colors.black,
+                color: textColor,
               ),
             ),
             if (rightIcon != null) ...[

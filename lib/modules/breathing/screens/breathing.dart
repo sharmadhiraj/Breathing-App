@@ -69,7 +69,7 @@ class BreathingScreen extends StatelessWidget {
   Widget _buildBubble() {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 40),
-      child: const RadialContainer(value: 1),
+      child: const Bubble(value: 1),
     );
   }
 }
