@@ -1,6 +1,8 @@
+import 'package:breathing_app/core/bloc/theme.dart';
+import 'package:breathing_app/core/route.dart';
 import 'package:breathing_app/core/theme.dart';
-import 'package:breathing_app/modules/breathing/screens/finish.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   runApp(const BreathingApp());
@@ -11,10 +13,19 @@ class BreathingApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "Breathing App",
-      theme: AppTheme.theme,
-      home: const FinishBreathingScreen(),
+    return BlocProvider(
+      create: (_) => ThemeBloc(),
+      child: BlocBuilder<ThemeBloc, ThemeState>(
+        builder: (context, state) {
+          return MaterialApp(
+            theme: AppTheme.lightTheme,
+            darkTheme: AppTheme.darkTheme,
+            themeMode: state.themeMode,
+            initialRoute: AppRoutes.setup,
+            routes: AppRoutes.routes,
+          );
+        },
+      ),
     );
   }
 }

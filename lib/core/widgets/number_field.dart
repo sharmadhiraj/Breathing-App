@@ -1,4 +1,3 @@
-import 'package:breathing_app/core/theme.dart';
 import 'package:flutter/material.dart';
 
 class NumberField extends StatefulWidget {
@@ -40,12 +39,12 @@ class _NumberFieldState extends State<NumberField> {
             child: Text(
               "${value}s",
               textAlign: TextAlign.center,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w400,
                 letterSpacing: 0,
                 height: 1.5,
-                color: AppTheme.textPrimary,
+                color: Theme.of(context).textTheme.bodyMedium!.color,
               ),
             ),
           ),

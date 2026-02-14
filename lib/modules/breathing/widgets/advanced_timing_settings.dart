@@ -1,4 +1,4 @@
-import 'package:breathing_app/core/theme.dart';
+import 'package:breathing_app/core/app_colors.dart';
 import 'package:breathing_app/core/widgets/number_field.dart';
 import 'package:breathing_app/core/widgets/settings_tile_subtitle.dart';
 import 'package:breathing_app/core/widgets/settings_tile_title.dart';
@@ -83,12 +83,13 @@ class _AdvancedTimingItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).extension<AppColors>()!;
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 4),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: AppTheme.surfacePrimary,
-        border: Border.all(color: AppTheme.borderPrimary),
+        color: colors.surfacePrimary,
+        border: Border.all(color: colors.borderPrimary),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Row(
@@ -97,8 +98,8 @@ class _AdvancedTimingItem extends StatelessWidget {
           Expanded(
             child: Text(
               title,
-              style: const TextStyle(
-                color: AppTheme.textPrimary,
+              style: TextStyle(
+                color: colors.textPrimary,
                 fontWeight: FontWeight.w600,
                 letterSpacing: 0,
                 height: 1.5,

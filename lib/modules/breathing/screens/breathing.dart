@@ -1,3 +1,5 @@
+import 'package:breathing_app/core/route.dart';
+import 'package:breathing_app/core/widgets/app_bar.dart';
 import 'package:breathing_app/core/widgets/button.dart';
 import 'package:breathing_app/core/widgets/linear_progress.dart';
 import 'package:breathing_app/core/widgets/settings_tile_subtitle.dart';
@@ -10,10 +12,10 @@ class BreathingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: _buildBody());
+    return Scaffold(appBar: const BreathingAppBar(), body: _buildBody(context));
   }
 
-  Widget _buildBody() {
+  Widget _buildBody(BuildContext context) {
     return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -29,7 +31,9 @@ class BreathingScreen extends StatelessWidget {
           const SizedBox(height: 28),
           AppButton(
             text: "Resume",
-            onPressed: () {},
+            onPressed: () {
+              AppRoutes.navigateToReplacement(context, AppRoutes.finish);
+            },
             leftIcon: "play",
             backgroundColor: const Color(0xFFEFE6F0),
           ),

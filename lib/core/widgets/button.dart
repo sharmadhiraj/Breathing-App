@@ -39,7 +39,7 @@ class AppButton extends StatelessWidget {
           children: [
             if (leftIcon != null) ...[
               Image.asset("assets/icons/$leftIcon.png", width: 24, height: 24),
-              const SizedBox(width: 8),
+              const SizedBox(width: 16),
             ],
             Text(
               text,
@@ -52,7 +52,7 @@ class AppButton extends StatelessWidget {
               ),
             ),
             if (rightIcon != null) ...[
-              const SizedBox(width: 8),
+              const SizedBox(width: 16),
               Image.asset("assets/icons/$rightIcon.png", width: 24, height: 24),
             ],
           ],

@@ -1,4 +1,4 @@
-import 'package:breathing_app/core/theme.dart';
+import 'package:breathing_app/core/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class OptionChips extends StatefulWidget {
@@ -67,16 +67,15 @@ class _OptionChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).extension<AppColors>()!;
     return GestureDetector(
       onTap: onTap,
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 16),
         decoration: BoxDecoration(
-          color: isSelected
-              ? AppTheme.surfaceSecondary
-              : AppTheme.surfacePrimary,
+          color: isSelected ? colors.surfaceSecondary : colors.surfacePrimary,
           border: Border.all(
-            color: isSelected ? AppTheme.borderAccent : AppTheme.borderPrimary,
+            color: isSelected ? colors.borderAccent : colors.borderPrimary,
           ),
           borderRadius: BorderRadius.circular(28),
         ),
@@ -85,7 +84,7 @@ class _OptionChip extends StatelessWidget {
           label,
           style: TextStyle(
             fontWeight: FontWeight.w500,
-            color: isSelected ? AppTheme.textAccent : AppTheme.textPrimary,
+            color: isSelected ? colors.textAccent : colors.textPrimary,
             height: 1.5,
             letterSpacing: 0,
           ),
