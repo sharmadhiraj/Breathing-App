@@ -59,7 +59,9 @@ class SetupScreen extends StatelessWidget {
   Widget _buildButton(BuildContext context) {
     return AppButton(
       text: "Start breathing",
-      onPressed: () => AppRoutes.navigateTo(context, AppRoutes.breathing),
+      onPressed: () {
+        AppRoutes.navigateTo(context, AppRoutes.breathing);
+      },
       rightIcon: "breath",
     );
   }

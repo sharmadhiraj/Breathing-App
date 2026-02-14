@@ -27,7 +27,7 @@ class BreathingAppBar extends StatelessWidget implements PreferredSizeWidget {
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
                   color: (isDark ? Colors.white : Colors.black).withValues(
-                    alpha: 0.1,
+                    alpha: 0.05,
                   ),
                   shape: BoxShape.circle,
                 ),

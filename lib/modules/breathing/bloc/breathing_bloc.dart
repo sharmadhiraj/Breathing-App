@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:breathing_app/modules/breathing/bloc/advanced_timing_state.dart';
 import 'package:breathing_app/modules/breathing/bloc/breathing_event.dart';
 import 'package:breathing_app/modules/breathing/bloc/breathing_state.dart';
@@ -67,13 +68,16 @@ class BreathingBloc extends Bloc<BreathingEvent, BreathingState> {
     final nextPhase = _getNextPhase(state.phase);
     int nextCycle = state.cycle;
     if (state.phase == BreathingPhase.holdOut) {
+      AudioPlayer().play(AssetSource("sounds/chime.mp3"));
       nextCycle += 1;
       if (nextCycle > state.rounds) {
-        emit(state.copyWith(cycle: nextCycle));
+        Future.delayed(
+          const Duration(milliseconds: 500),
+          () => emit(state.copyWith(cycle: nextCycle)),
+        );
         return;
       }
     }
-
     emit(
       state.copyWith(
         phase: nextPhase,
