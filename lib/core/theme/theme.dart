@@ -7,7 +7,7 @@ class AppTheme {
   static final ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,
     primaryColor: primaryColor,
-    scaffoldBackgroundColor: const Color(0xFFF7F7F7),
+    scaffoldBackgroundColor: Colors.transparent,
     fontFamily: "Quicksand",
     textTheme: const TextTheme(
       bodyMedium: TextStyle(fontSize: 16, color: Color(0xFF141414)),
@@ -35,7 +35,7 @@ class AppTheme {
   static final ThemeData darkTheme = ThemeData(
     brightness: Brightness.dark,
     primaryColor: primaryColor,
-    scaffoldBackgroundColor: const Color(0xFF1E1E1E),
+    scaffoldBackgroundColor: Colors.transparent,
     fontFamily: "Quicksand",
     textTheme: const TextTheme(
       bodyMedium: TextStyle(fontSize: 16, color: Color(0xFFFFFFFF)),

@@ -71,10 +71,7 @@ class BreathingBloc extends Bloc<BreathingEvent, BreathingState> {
       AudioPlayer().play(AssetSource("sounds/chime.mp3"));
       nextCycle += 1;
       if (nextCycle > state.rounds) {
-        Future.delayed(
-          const Duration(milliseconds: 500),
-          () => emit(state.copyWith(cycle: nextCycle)),
-        );
+        emit(state.copyWith(cycle: nextCycle));
         return;
       }
     }

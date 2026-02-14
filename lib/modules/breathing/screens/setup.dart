@@ -1,6 +1,6 @@
 import 'package:breathing_app/core/route.dart';
 import 'package:breathing_app/core/theme/app_colors.dart';
-import 'package:breathing_app/core/widgets/app_bar.dart';
+import 'package:breathing_app/core/widgets/app_scaffold.dart';
 import 'package:breathing_app/core/widgets/button.dart';
 import 'package:breathing_app/modules/breathing/widgets/settings_panel.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +10,7 @@ class SetupScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: const BreathingAppBar(), body: _buildBody(context));
+    return AppScaffold(body: _buildBody(context));
   }
 
   Widget _buildBody(BuildContext context) {

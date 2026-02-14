@@ -1,6 +1,7 @@
 import 'package:breathing_app/core/route.dart';
 import 'package:breathing_app/core/theme/bloc.dart';
 import 'package:breathing_app/core/theme/theme.dart';
+import 'package:breathing_app/core/widgets/background_builder.dart';
 import 'package:breathing_app/modules/breathing/bloc/advanced_timing_bloc.dart';
 import 'package:breathing_app/modules/breathing/bloc/setup_bloc.dart';
 import 'package:flutter/material.dart';
@@ -24,11 +25,13 @@ class BreathingApp extends StatelessWidget {
       child: BlocBuilder<ThemeBloc, ThemeState>(
         builder: (context, state) {
           return MaterialApp(
+            debugShowCheckedModeBanner: false,
             theme: AppTheme.lightTheme,
             darkTheme: AppTheme.darkTheme,
             themeMode: state.themeMode,
             initialRoute: AppRoutes.setup,
             routes: AppRoutes.routes,
+            builder: (context, child) => BackgroundBuilder(child: child),
           );
         },
       ),
