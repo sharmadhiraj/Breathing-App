@@ -1,4 +1,4 @@
-import 'package:breathing_app/core/theme.dart';
+import 'package:breathing_app/core/theme/theme.dart';
 import 'package:breathing_app/core/widgets/option_chips.dart';
 import 'package:breathing_app/core/widgets/settings_tile_subtitle.dart';
 import 'package:breathing_app/core/widgets/settings_tile_title.dart';

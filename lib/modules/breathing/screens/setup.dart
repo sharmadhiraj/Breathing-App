@@ -1,5 +1,5 @@
-import 'package:breathing_app/core/app_colors.dart';
 import 'package:breathing_app/core/route.dart';
+import 'package:breathing_app/core/theme/app_colors.dart';
 import 'package:breathing_app/core/widgets/app_bar.dart';
 import 'package:breathing_app/core/widgets/button.dart';
 import 'package:breathing_app/modules/breathing/widgets/settings_panel.dart';

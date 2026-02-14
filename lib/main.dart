@@ -1,6 +1,6 @@
-import 'package:breathing_app/core/bloc/theme.dart';
 import 'package:breathing_app/core/route.dart';
-import 'package:breathing_app/core/theme.dart';
+import 'package:breathing_app/core/theme/bloc.dart';
+import 'package:breathing_app/core/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

@@ -1,4 +1,4 @@
-import 'package:breathing_app/core/theme.dart';
+import 'package:breathing_app/core/theme/theme.dart';
 import 'package:flutter/material.dart';
 
 class Bubble extends StatelessWidget {

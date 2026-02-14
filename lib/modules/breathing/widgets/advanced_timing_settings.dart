@@ -1,4 +1,4 @@
-import 'package:breathing_app/core/app_colors.dart';
+import 'package:breathing_app/core/theme/app_colors.dart';
 import 'package:breathing_app/core/widgets/number_field.dart';
 import 'package:breathing_app/core/widgets/settings_tile_subtitle.dart';
 import 'package:breathing_app/core/widgets/settings_tile_title.dart';

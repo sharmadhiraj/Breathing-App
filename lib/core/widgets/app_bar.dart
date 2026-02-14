@@ -1,5 +1,6 @@
-import 'package:breathing_app/core/bloc/theme.dart';
+import 'package:breathing_app/core/theme/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BreathingAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -7,9 +8,15 @@ class BreathingAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     return AppBar(
       backgroundColor: Colors.transparent,
       elevation: 0,
+      systemOverlayStyle: SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: isDark ? Brightness.light : Brightness.dark,
+        statusBarBrightness: isDark ? Brightness.dark : Brightness.light,
+      ),
       actions: [
         BlocBuilder<ThemeBloc, ThemeState>(
           builder: (context, state) {
